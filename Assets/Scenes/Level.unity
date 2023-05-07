@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 489223923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89067a9cced8e1a46a3f85ded4e18564, type: 3}
+  m_Script: {fileID: 11500000, guid: 0667ac37160037543a73b5b2aa877fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &489223925
@@ -476,11 +476,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1731494684, guid: 8261d8714847d8649a79beb0459cb568, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -496,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 1829509286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.1875, y: 0.375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
