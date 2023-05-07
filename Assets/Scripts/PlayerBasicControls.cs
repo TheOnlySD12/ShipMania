@@ -7,12 +7,14 @@ public class PlayerBasicControls : MonoBehaviour
     Rigidbody2D body;
 
     [SerializeField] float gunTimer;
-    float firerate = 1; //cu cat e mai mare, cu atat mai repede trage
+    float firerate = 2; //cu cat e mai mare, cu atat mai repede trage
     GameObject clone;
     [SerializeField] GameObject currentAmmo;
 
+    public Animator animator;
 
-    float moveSpeed_base = 4;
+
+    float moveSpeed_base = 8;
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -38,6 +40,26 @@ public class PlayerBasicControls : MonoBehaviour
             
         }
         ChangeAmmo(1);
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (horizontalInput < 0)
+        {
+            // Play the animation for moving left
+            animator.SetBool("IsMovingLeft", true);
+        }
+        else if (horizontalInput > 0)
+        {
+            // Play the animation for moving right
+            animator.SetBool("IsMovingRight", true);
+        }
+        else
+        {
+            // Stop both animations if the player isn't moving
+            animator.SetBool("IsMovingLeft", false);
+            animator.SetBool("IsMovingRight", false);
+        }
+
     }
     public void ChangeAmmo(int type)
     {
