@@ -64,6 +64,7 @@ public class PlayerBasicControls : MonoBehaviour
     public void ChangeAmmo(int type)
     {
         currentAmmo = GameObject.Find("Bullet " + type.ToString());
+        firerate = currentAmmo.GetComponent<BulletBehaviour>().bulletFireRate;
 
     }
 
