@@ -10,5 +10,13 @@ public class PlayerDebug : MonoBehaviour
         {
             this.GetComponent<PlayerBasicControls>().ChangeAmmo(1);
         }
+        if (Input.GetKeyDown("2"))
+        {
+            this.GetComponent<PlayerBasicControls>().ChangeAmmo(2);
+        }
+        if (Input.GetKeyDown("p"))
+        {
+            Instantiate(GameObject.Find("MiniGunPowerUp"), new Vector2(-2,7), new Quaternion());
+        }
     }
 }

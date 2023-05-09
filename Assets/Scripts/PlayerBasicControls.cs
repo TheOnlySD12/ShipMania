@@ -71,6 +71,7 @@ public class PlayerBasicControls : MonoBehaviour
     {
         if (collision.name.Contains("MiniGun"))
         {
+            Destroy(collision.gameObject);
             ChangeAmmo(2);
         }
     }
