@@ -15,6 +15,12 @@ public class BulletBehaviour : MonoBehaviour
             bulletDamage = 1;
             bulletSpeed = 15;
         }
+
+        if (this.name.Contains("2"))
+        {
+            bulletDamage = 0.2f;
+            bulletSpeed = 16;
+        }
     
     
     

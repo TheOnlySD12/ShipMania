@@ -18,7 +18,7 @@ public class PlayerBasicControls : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
-
+        ChangeAmmo(1);
     }
 
 
@@ -39,7 +39,7 @@ public class PlayerBasicControls : MonoBehaviour
             clone.layer = 7;
             
         }
-        ChangeAmmo(1);
+
 
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -66,4 +66,13 @@ public class PlayerBasicControls : MonoBehaviour
         currentAmmo = GameObject.Find("Bullet " + type.ToString());
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name.Contains("MiniGun"))
+        {
+            ChangeAmmo(2);
+        }
+    }
+
 }
