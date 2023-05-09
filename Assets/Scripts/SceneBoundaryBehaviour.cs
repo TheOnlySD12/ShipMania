@@ -6,10 +6,14 @@ public class SceneBoundaryBehaviour : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        /*if (collision.name.Contains("Bullet"))
+        if (collision.name.Contains("Bullet"))
         {
-            
-        }*/
-        Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
+        }
+        if (collision.name.Contains("PowerUp"))
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

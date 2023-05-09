@@ -14,6 +14,14 @@ public class PlayerDebug : MonoBehaviour
         {
             this.GetComponent<PlayerBasicControls>().ChangeAmmo(2);
         }
+        if (Input.GetKeyDown("3"))
+        {
+            this.GetComponent<PlayerBasicControls>().ChangeAmmo(3);
+        }
+        if (Input.GetKeyDown("b"))
+        {
+            Instantiate(GameObject.Find("BombPowerUp"), new Vector2(4, 7), new Quaternion());
+        }
         if (Input.GetKeyDown("p"))
         {
             Instantiate(GameObject.Find("MiniGunPowerUp"), new Vector2(-2,7), new Quaternion());

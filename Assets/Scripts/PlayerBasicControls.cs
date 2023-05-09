@@ -75,6 +75,12 @@ public class PlayerBasicControls : MonoBehaviour
             Destroy(collision.gameObject);
             ChangeAmmo(2);
         }
+        if (collision.name.Contains("Bomb"))
+        {
+            Destroy(collision.gameObject);
+            ChangeAmmo(3);
+        }
     }
+
 
 }

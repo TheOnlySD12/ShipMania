@@ -6,6 +6,6 @@ public class PowerUp : MonoBehaviour
 {
     private void Awake()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.down;
+        GetComponent<Rigidbody2D>().velocity = Vector2.down * 3;
     }
 }
