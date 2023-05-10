@@ -23,7 +23,7 @@ public class WaveController : MonoBehaviour
             //waypoint.SetActive(false);
         }
 
-        for (int x = 0; x < numberOfWaveParents; x++)  // toate waypointurile active de pe scena sunt puse, in ordine, intr-un array.
+        for (int x = 0; x < numberOfWaveParents; x++)  // toate parenturile active de pe scena sunt puse, in ordine, intr-un array.
         {
             waveParentArray[x] = GameObject.Find("Wave " + (x+1) + " Parent");
         }
@@ -40,7 +40,7 @@ public class WaveController : MonoBehaviour
         
         if(enemiesAlive == 0)
         {
-            waveParentArray[waveNumber].SetActive(false);
+            //waveParentArray[waveNumber].SetActive(false);
 
             waveNumber++;
 

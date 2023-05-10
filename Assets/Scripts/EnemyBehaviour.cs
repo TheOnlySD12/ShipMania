@@ -17,7 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     Rigidbody2D body;
     float moveSpeed = 1;
 
-    float moveTimer = 0;
+    [SerializeField] float moveTimer = 0;
 
     void Awake()
     {
@@ -40,16 +40,18 @@ public class EnemyBehaviour : MonoBehaviour
         moveTimer -= Time.deltaTime;
         if (moveTimer <= 0)
         {
-            moveTimer = distanceToNextWaypoint / moveSpeed;
+            moveTimer = (distanceToNextWaypoint / moveSpeed) / 10;
             
             nextWaypointNumber++;
             
             /*transform.right = waypointArray[nextWaypointNumber].transform.position - this.transform.position;*/
             distanceToNextWaypoint = Mathf.Abs((waypointArray[nextWaypointNumber].transform.position - this.transform.position).magnitude);
             body.velocity = (waypointArray[nextWaypointNumber].transform.position - this.transform.position) * moveSpeed;
+            Debug.Log(nextWaypointNumber);
         }
 
-        
+        Debug.Log(waypointArray[0]);
+        Debug.Log(moveTimer);
     }
 
     public void TakeDamage(float amount)
