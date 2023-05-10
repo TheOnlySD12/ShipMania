@@ -3,7 +3,7 @@ guid: 8261d8714847d8649a79beb0459cb568
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1132,7 +1133,7 @@ TextureImporter:
         width: 1
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1140,6 +1141,48 @@ TextureImporter:
       bones: []
       spriteID: 4d30eaa379c49554bb0e987a1b9adeab
       internalID: 879010861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceShooterAssetPack_Projectiles_49
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 51
+        width: 2
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e5db42e23c8ed449ea0ce2149c89cd
+      internalID: 1305868331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceShooterAssetPack_Projectiles_50
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 19
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ec66ce32c8ff347bb328e6d774f237
+      internalID: -666275093
       vertices: []
       indices: 
       edges: []
@@ -1181,6 +1224,7 @@ TextureImporter:
       SpaceShooterAssetPack_Projectiles_11: 1546854713
       SpaceShooterAssetPack_Projectiles_15: -291446180
       SpaceShooterAssetPack_Projectiles_25: 551444394
+      SpaceShooterAssetPack_Projectiles_50: -666275093
       SpaceShooterAssetPack_Projectiles_3: -102365872
       SpaceShooterAssetPack_Projectiles_26: -1731494684
       SpaceShooterAssetPack_Projectiles_31: 145160296
@@ -1196,6 +1240,7 @@ TextureImporter:
       SpaceShooterAssetPack_Projectiles_29: 1994194351
       SpaceShooterAssetPack_Projectiles_48: 879010861
       SpaceShooterAssetPack_Projectiles_32: -542945165
+      SpaceShooterAssetPack_Projectiles_49: 1305868331
       SpaceShooterAssetPack_Projectiles_20: 592904341
       SpaceShooterAssetPack_Projectiles_39: -1664749009
       SpaceShooterAssetPack_Projectiles_41: 1765907545

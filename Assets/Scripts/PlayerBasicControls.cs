@@ -6,6 +6,10 @@ public class PlayerBasicControls : MonoBehaviour
 {
     Rigidbody2D body;
 
+    bool hasBullet;
+
+    public Canvas canvasText;
+
     [SerializeField] float gunTimer;
     float firerate = 2; //cu cat e mai mare, cu atat mai repede trage
     GameObject clone;
@@ -20,7 +24,7 @@ public class PlayerBasicControls : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
-        ChangeAmmo(1);
+        ChangeAmmo(0);
     }
 
 
@@ -42,6 +46,13 @@ public class PlayerBasicControls : MonoBehaviour
 
         }
 
+        if (hasBullet)
+        {
+            canvasText.gameObject.SetActive(false);
+            Destroy(GameObject.Find("BalancedPowerUp"));
+            Destroy(GameObject.Find("BombPowerUp"));
+            Destroy(GameObject.Find("MiniGunPowerUp"));
+        }
 
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -76,11 +87,19 @@ public class PlayerBasicControls : MonoBehaviour
         {
             Destroy(collision.gameObject);
             ChangeAmmo(2);
+            hasBullet = true;
         }
         if (collision.name.Contains("Bomb"))
         {
             Destroy(collision.gameObject);
             ChangeAmmo(3);
+            hasBullet = true;
+        }
+        if (collision.name.Contains("Balanced"))
+        {
+            Destroy(collision.gameObject);
+            ChangeAmmo(1);
+            hasBullet = true;
         }
         if (collision.name.Contains("FireRate"))
         {

@@ -15,6 +15,13 @@ public class BulletBehaviour : MonoBehaviour
 #pragma warning restore 0414
     void Awake()
     {
+        if (this.name.Contains("0"))
+        {
+            bulletDamage = 0;
+            bulletSpeed = 20;
+            bulletFireRate = 2;
+        }
+
         if (this.name.Contains("1"))
         {
             bulletDamage = 1;

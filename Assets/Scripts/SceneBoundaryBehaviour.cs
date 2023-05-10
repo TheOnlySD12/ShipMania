@@ -10,7 +10,7 @@ public class SceneBoundaryBehaviour : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        if (collision.name.Contains("PowerUp"))
+        if (collision.name.Contains("Up"))
         {
             Destroy(collision.gameObject);
         }
