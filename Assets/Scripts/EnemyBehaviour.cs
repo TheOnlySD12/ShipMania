@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-<<<<<<< Updated upstream
 #pragma warning disable 0414
     int speed;
     float health;
 #pragma warning restore 0414
-=======
     int nextWaypointNumber = 1;
     int numberOfActiveWaypoints;
     GameObject[] waypointArray;
@@ -21,7 +19,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     float moveTimer = 0;
 
->>>>>>> Stashed changes
     void Awake()
     {
         if (this.name.Contains("1")) { moveSpeed = 1; }
@@ -32,12 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
         
         for(int x = 0; x < numberOfActiveWaypoints; x++)  // toate waypointurile active de pe scena sunt puse, in ordine, intr-un array.
         {
-<<<<<<< Updated upstream
-            speed = 1;
-            health = 10;
-=======
             waypointArray[x] = GameObject.Find("Waypoint " + (x+1));
->>>>>>> Stashed changes
         }
 
         body = GetComponent<Rigidbody2D>();
