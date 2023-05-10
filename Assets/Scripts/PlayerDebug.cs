@@ -26,5 +26,9 @@ public class PlayerDebug : MonoBehaviour
         {
             Instantiate(GameObject.Find("MiniGunPowerUp"), new Vector2(-2,7), new Quaternion());
         }
+        if (Input.GetKeyDown("f"))
+        {
+            Instantiate(GameObject.Find("FireRateUp"), new Vector2(0, 7), new Quaternion());
+        }
     }
 }

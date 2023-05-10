@@ -11,6 +11,8 @@ public class PlayerBasicControls : MonoBehaviour
     GameObject clone;
     [SerializeField] GameObject currentAmmo;
 
+    float fireRateModifier = 1;
+
     public Animator animator;
 
 
@@ -33,11 +35,11 @@ public class PlayerBasicControls : MonoBehaviour
 
         if (Input.GetButton("Fire1") && gunTimer < 0)
         {
-            gunTimer = 1 / firerate;
+            gunTimer = 1 / (firerate * fireRateModifier);
             clone = Instantiate(currentAmmo, body.position, new Quaternion());
             clone.GetComponent<Rigidbody2D>().velocity = Vector2.up * currentAmmo.GetComponent<BulletBehaviour>().bulletSpeed;
             clone.layer = 7;
-            
+
         }
 
 
@@ -80,7 +82,13 @@ public class PlayerBasicControls : MonoBehaviour
             Destroy(collision.gameObject);
             ChangeAmmo(3);
         }
+        if (collision.name.Contains("FireRate"))
+        {
+            Destroy(collision.gameObject);
+            fireRateModifier *= 1.25f;
+        }
     }
+
 
 
 }
