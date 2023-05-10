@@ -4,62 +4,37 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    float spawningTimer = 0;
-    float spawningRate;
+    GameObject[] listaInamici;
+    public GameObject inamic;
 
-    int enemiesAlive = 0;
-    int enemiesLeftToSpawn;
-    GameObject enemyObject;
-    int waveNumber = 0;
-    GameObject[] waypointList;
-
-    int numberOfWaveParents;
-    GameObject[] waveParentArray;
-    void Start()
+    private void Start()
     {
-        waypointList = GameObject.FindGameObjectsWithTag("Waypoint");
-        foreach(GameObject waypoint in waypointList)
+        listaInamici = new GameObject[GameObject.FindGameObjectsWithTag("Enemy").Length];
+
+        for(int x = 0; x < GameObject.FindGameObjectsWithTag("Enemy").Length; x++)
         {
-            //waypoint.SetActive(false);
+            listaInamici[x] = GameObject.Find("Enemy " + x);
+        }
+        foreach(GameObject gameObject in listaInamici)
+        {
+            gameObject.SetActive(false);
         }
 
-        for (int x = 0; x < numberOfWaveParents; x++)  // toate parenturile active de pe scena sunt puse, in ordine, intr-un array.
-        {
-            waveParentArray[x] = GameObject.Find("Wave " + (x+1) + " Parent");
-        }
-
-        foreach(GameObject parent in waveParentArray)
-        {
-            parent.SetActive(false);
-        }
     }
 
-    void Update()
+    float timer;
+    float numaratoareInamici = 12;
+    
+    private void Update()
     {
-        spawningTimer -= Time.deltaTime;
-        
-        if(enemiesAlive == 0)
+        timer -= Time.deltaTime;
+
+        if(timer <= 0 && numaratoareInamici > 0)
         {
-            //waveParentArray[waveNumber].SetActive(false);
-
-            waveNumber++;
-
-            waveParentArray[waveNumber].SetActive(true);
-            
-            if (waveNumber == 1) { spawningRate = 1; enemiesLeftToSpawn = 12; enemyObject = GameObject.Find("Enemy 1"); }
-
-            
+            inamic = GameObject.Instantiate(listaInamici[0], this.transform.position, new Quaternion());
+            inamic.SetActive(true);
+            timer = 0.5f;
+            numaratoareInamici--;
         }
-        
-        if(spawningTimer <= 0 && enemiesLeftToSpawn > 0)
-        {
-            spawningTimer = spawningRate;
-            Instantiate(enemyObject, transform.position, new Quaternion());
-            
-        }
-        
-        enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
-    
-    
 }

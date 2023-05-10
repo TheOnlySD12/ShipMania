@@ -5,58 +5,60 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 #pragma warning disable 0414
-    int speed;
     float health;
 #pragma warning restore 0414
-    int nextWaypointNumber = 1;
-    int numberOfActiveWaypoints;
-    GameObject[] waypointArray;
 
-    float distanceToNextWaypoint;
-
+    GameObject[] listaPuncte;
     Rigidbody2D body;
-    float moveSpeed = 1;
 
-    [SerializeField] float moveTimer = 0;
+    float viteza = 5;
 
-    void Awake()
+    private void Awake()
     {
-        if (this.name.Contains("1")) { moveSpeed = 1; }
-
-        
-        numberOfActiveWaypoints = GameObject.FindGameObjectsWithTag("Waypoint").Length;
-        waypointArray = new GameObject[numberOfActiveWaypoints];
-        
-        for(int x = 0; x < numberOfActiveWaypoints; x++)  // toate waypointurile active de pe scena sunt puse, in ordine, intr-un array.
-        {
-            waypointArray[x] = GameObject.Find("Waypoint " + (x+1));
-        }
-
+        listaPuncte = new GameObject[GameObject.FindGameObjectsWithTag("Waypoint").Length];
         body = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        moveTimer -= Time.deltaTime;
-        if (moveTimer <= 0)
+        
+        for(int x = 0; x < GameObject.FindGameObjectsWithTag("Waypoint").Length; x++)
         {
-            moveTimer = (distanceToNextWaypoint / moveSpeed) / 10;
-            
-            nextWaypointNumber++;
-            
-            /*transform.right = waypointArray[nextWaypointNumber].transform.position - this.transform.position;*/
-            distanceToNextWaypoint = Mathf.Abs((waypointArray[nextWaypointNumber].transform.position - this.transform.position).magnitude);
-            body.velocity = (waypointArray[nextWaypointNumber].transform.position - this.transform.position) * moveSpeed;
-            Debug.Log(nextWaypointNumber);
+            listaPuncte[x] = GameObject.Find("Waypoint " + x);
+            Debug.Log(listaPuncte[x]);
         }
-
-        Debug.Log(waypointArray[0]);
-        Debug.Log(moveTimer);
+    
+        
     }
 
+    int urmatorulPunct = -1;
+    float distantaPanaLaUrmPct;
+    float timer;
+
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            urmatorulPunct++;
+            distantaPanaLaUrmPct = (listaPuncte[urmatorulPunct].transform.position - this.transform.position).magnitude;
+            body.velocity = (listaPuncte[urmatorulPunct].transform.position - this.transform.position).normalized * viteza;
+            timer = distantaPanaLaUrmPct / viteza;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<BulletBehaviour>().bulletDamage);
+            Destroy(collision.gameObject);
+        }
+    }
     public void TakeDamage(float amount)
     {
         health -= amount;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
     
 }

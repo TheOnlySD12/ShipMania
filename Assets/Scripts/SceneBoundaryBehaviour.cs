@@ -14,6 +14,9 @@ public class SceneBoundaryBehaviour : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        
+        if (collision.name.Contains("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
