@@ -7,7 +7,7 @@ public class BulletBehaviour : MonoBehaviour
 #pragma warning disable 0414
     public float bulletDamage;
     public float bulletSpeed;
-    public float bulletFireRate;
+    public float bulletFireRate = 15;
 
     public float damageRadius;
     public int explosionDamage;
@@ -18,7 +18,7 @@ public class BulletBehaviour : MonoBehaviour
         if (this.name.Contains("0"))
         {
             bulletDamage = 0;
-            bulletSpeed = 20;
+            bulletSpeed = -20;
             bulletFireRate = 2;
         }
 
@@ -31,14 +31,14 @@ public class BulletBehaviour : MonoBehaviour
 
         if (this.name.Contains("2"))
         {
-            bulletDamage = 0.1f;
+            bulletDamage = 0.4f;
             bulletSpeed = 16;
             bulletFireRate = 9;
         }
 
         if (this.name.Contains("3"))
         {
-            bulletDamage = 1;
+            bulletDamage = 2;
             bulletSpeed = 14;
             bulletFireRate = 0.7f;
 

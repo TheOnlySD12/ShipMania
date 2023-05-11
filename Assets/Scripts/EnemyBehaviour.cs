@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 #pragma warning disable 0414
-    float health;
+    float health = 2;
 #pragma warning restore 0414
 
     GameObject[] listaPuncte;
+    public Animator animatorenemy;
+
     Rigidbody2D body;
 
     float viteza = 5;
@@ -54,6 +56,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        animatorenemy.SetTrigger("Hit");
         health -= amount;
         if (health <= 0)
         {
