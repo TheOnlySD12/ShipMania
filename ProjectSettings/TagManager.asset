@@ -7,6 +7,7 @@ TagManager:
   - FriendlyBullet
   - Waypoint
   - Enemy
+  - WaveParent
   layers:
   - Default
   - TransparentFX

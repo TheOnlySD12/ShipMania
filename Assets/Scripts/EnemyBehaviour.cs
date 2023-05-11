@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 #pragma warning disable 0414
-    float health = 2;
+    float health = 3;
 #pragma warning restore 0414
 
     GameObject[] listaPuncte;
