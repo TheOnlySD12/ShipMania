@@ -52,10 +52,11 @@ public class WaveController : MonoBehaviour
             numaratoareInamici--;
         }
 
-        if(numaratoareInamici <= 0)
+        if(/*numaratoareInamici <= 0*/Input.GetKeyDown("m"))
         {
             NextWave();
         }
+        Debug.Log(waveNumber + " " + numaratoareInamici);
     }
 
     void NextWave()
