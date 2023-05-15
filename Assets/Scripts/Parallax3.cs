@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Parallax3 : MonoBehaviour
 {
+    float starSpeed = 0;
     // Start is called before the first frame update
     void Update()
     {
-        transform.position += new Vector3(0, -4 * Time.deltaTime);
+        starSpeed = Input.GetAxis("Vertical")/-300;
+        transform.position += new Vector3(0, -4  * Time.deltaTime + starSpeed);
 
         if (transform.position.y < -19.6)
         {
