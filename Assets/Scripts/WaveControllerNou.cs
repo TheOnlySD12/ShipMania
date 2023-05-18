@@ -38,6 +38,15 @@ public class WaveControllerNou : MonoBehaviour
         {
             waveParentList[i] = GameObject.Find("Wave " + i + " Parent");
         }
+
+        foreach(GameObject enemy in enemyList)
+        {
+            enemy.SetActive(false);
+        }
+        foreach(GameObject waypointGroup in waveParentList)
+        {
+            waypointGroup.SetActive(true);
+        }
     }
 
     private void Update()
@@ -59,6 +68,7 @@ public class WaveControllerNou : MonoBehaviour
             if (spawningTimer <= 0)
             {
                 clone = Instantiate(currentEnemy, this.transform.position, new Quaternion());
+                clone.SetActive(true);
                 instantiatedEnemyList.Add(clone);
 
                 enemiesLeftAlive++;
@@ -71,9 +81,11 @@ public class WaveControllerNou : MonoBehaviour
 
     void NextWave()
     {
+        waveParentList[waveNumber].SetActive(false);
         waveNumber++;
+        waveParentList[waveNumber].SetActive(true);
 
-        if(waveNumber == 0)
+        if (waveNumber == 0)
         {
             currentEnemy = enemyList[0];
             currentSpawnDelay = 1;
