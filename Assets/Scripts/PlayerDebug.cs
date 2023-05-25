@@ -8,7 +8,7 @@ public class PlayerDebug : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            this.GetComponent<PlayerBasicControls>().ChangeAmmo(1);
+            GetComponent<PlayerBasicControls>().ChangeAmmo(1);
         }
         if (Input.GetKeyDown("2"))
         {
@@ -35,4 +35,8 @@ public class PlayerDebug : MonoBehaviour
             Instantiate(GameObject.Find("BalancedPowerUp"), new Vector2(-4, 7), new Quaternion());
         }
     }
+
+    public void BulletSelector(int ammo) {
+        this.GetComponent<PlayerBasicControls>().ChangeAmmo(ammo);
+    } 
 }

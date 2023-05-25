@@ -83,24 +83,6 @@ public class PlayerBasicControls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Contains("MiniGun"))
-        {
-            Destroy(collision.gameObject);
-            ChangeAmmo(2);
-            hasBullet = true;
-        }
-        if (collision.name.Contains("Bomb"))
-        {
-            Destroy(collision.gameObject);
-            ChangeAmmo(3);
-            hasBullet = true;
-        }
-        if (collision.name.Contains("Balanced"))
-        {
-            Destroy(collision.gameObject);
-            ChangeAmmo(1);
-            hasBullet = true;
-        }
         if (collision.name.Contains("FireRate"))
         {
             Destroy(collision.gameObject);
