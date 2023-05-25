@@ -21,7 +21,7 @@ public class WaveControllerInvechit : MonoBehaviour
         }
         foreach(GameObject gameObject in listaInamici)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         for(int x = 0; x < listaWaveParenturi.Length; x++)
@@ -30,7 +30,7 @@ public class WaveControllerInvechit : MonoBehaviour
         }
         foreach(GameObject gameObject in listaWaveParenturi)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
 

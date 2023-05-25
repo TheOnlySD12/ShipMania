@@ -44,6 +44,11 @@ public class EnemyBehaviour : MonoBehaviour
             body.velocity = (listaPuncte[urmatorulPunct].transform.position - this.transform.position).normalized * viteza;
             timer = distantaPanaLaUrmPct / viteza;
         }
+        Debug.Log(urmatorulPunct);
+        if (Input.GetKey("k"))
+        {
+            body.velocity = (listaPuncte[urmatorulPunct].transform.position - this.transform.position).normalized * viteza;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

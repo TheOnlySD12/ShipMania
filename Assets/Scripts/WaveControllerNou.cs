@@ -52,7 +52,10 @@ public class WaveControllerNou : MonoBehaviour
     private void Update()
     {
         spawningTimer -= Time.deltaTime;
-        enemiesLeftAlive = instantiatedEnemyList.Count;
+        //if(/*instantiatedEnemyList.Count != 0*/)
+        {
+            //enemiesLeftAlive = instantiatedEnemyList.Count;
+        }
         
         if (enemiesLeftToSpawn <=0)
         {
@@ -68,22 +71,24 @@ public class WaveControllerNou : MonoBehaviour
             if (spawningTimer <= 0)
             {
                 clone = Instantiate(currentEnemy, this.transform.position, new Quaternion());
+                
                 clone.SetActive(true);
-                instantiatedEnemyList.Add(clone);
+                //instantiatedEnemyList.Add(clone);
 
                 enemiesLeftAlive++;
                 enemiesLeftToSpawn--;
                 spawningTimer = currentSpawnDelay;
             }
-        }    
+        }
+        Debug.Log("aaaaaaaaaaaaa");
     }
 
 
     void NextWave()
     {
-        waveParentList[waveNumber].SetActive(false);
+        //waveParentList[waveNumber].SetActive(false);
         waveNumber++;
-        waveParentList[waveNumber].SetActive(true);
+        //waveParentList[waveNumber].SetActive(true);
 
         if (waveNumber == 0)
         {
