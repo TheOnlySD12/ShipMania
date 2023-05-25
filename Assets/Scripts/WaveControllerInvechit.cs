@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
-public class WaveController : MonoBehaviour
+public class WaveControllerInvechit : MonoBehaviour
 {
     GameObject[] listaInamici;
     GameObject[] listaWaveParenturi;
